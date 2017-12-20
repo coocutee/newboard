@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,18 +11,18 @@
 <Form role="form" method="post">
 
 
-Á¦¸ñ : <input type="text" name="title" value="${boardVO.title}"> 
+ì œëª© : <input type="text" name="title" value="${boardVO.title}"> 
 <p>
-±Û¾´ÀÌ : <input type="text" name="id" value="${boardVO.id}" readonly="readonly">
+ê¸€ì“´ì´ : <input type="text" name="id" value="${boardVO.id}" readonly="readonly">
 <p>
-³»¿ë : <input type="text" name="content" value="${boardVO.content}">
+ë‚´ìš© : <input type="text" name="content" value="${boardVO.content}">
 
 
 </Form>
 
 <div>
- <button class="btn_modify" type="submit"> ÀúÀå </button>
- <button class="btn_list" type="submit"> ¸ñ·Ï </button>
+ <button class="btn_modify" type="submit"> ì €ìž¥ </button>
+ <button class="btn_list" type="submit"> ëª©ë¡ </button>
  
 </div>
 
