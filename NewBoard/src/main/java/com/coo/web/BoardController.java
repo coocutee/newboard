@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +14,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.coo.dao.BoardDAO;
 import com.coo.domain.BoardVO;
+import com.coo.domain.Criteria;
+import com.coo.domain.PageMaker;
+import com.coo.service.BoardService;
 
 @Controller
 @RequestMapping("/board/*")
@@ -22,6 +26,9 @@ public class BoardController {
 	
 	@Inject
 	private BoardDAO dao;
+	
+	@Inject
+	private BoardService service;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void registGET(BoardVO board, Model model) throws Exception{
@@ -85,5 +92,24 @@ public class BoardController {
 		logger.info("modify complete");
 		
 		return "redirect:/board/listAll";
+	}
+	
+	@GetMapping("/listCri")
+	public void listAll(Criteria cri, Model model)throws Exception{
+		
+		logger.info("show list page with cri...");
+		
+		model.addAttribute("list",service.listCriteria(cri));
+	}
+	
+	@GetMapping("/listPage")
+	public void listPage(Criteria cri, Model model)throws Exception{
+		
+		model.addAttribute("list",service.listCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		//pageMaker.setTotalCount(131);
+		pageMaker.setTotalCount(service.listCountCriteria(cri));
+		model.addAttribute("pageMaker",pageMaker);
 	}
 }
