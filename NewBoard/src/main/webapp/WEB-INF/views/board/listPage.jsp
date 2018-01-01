@@ -12,10 +12,21 @@
 </head>
 
 <style>
+
+a{text-decoration: none; color:#666666;}
+a:hover{color:#45a4a6;   font-weight: bold;}
+body{
+width:810px;
+/* height:800px;  나중에 설정해줘도됨*/
+margin:0 auto;}
+/* 만약 위와 테이블간의 여백을 띄우고 싶다면 0의 수치를 변경해주면됨 */
+
 ul {
 list-style : none;
-margin : 0;
+margin : 16px auto;
 padding : 0;
+height:30px;
+width: 30%;
 }
  li{
 margin : 0 0 0 0 ;
@@ -23,6 +34,65 @@ padding : 0 0 0 0 ;
 border : 0;
 float : left;
 }
+
+li:last-child{
+margin-left:10px;}
+ ul li a{
+  display:block;
+  color:#333333;
+height:16px;
+line-height:16px;
+  width:20px;
+  text-decoration:none;
+
+  }
+  
+
+  
+  table tr{
+  height:40px;
+
+  }
+  
+  table tr td{
+   border-bottom:1px solid #80c4c5;
+   text-align: center;
+   
+  }
+  
+  table tr td:nth-child(1){
+  	width:45px;
+  	font-weight: 600;
+  }
+
+
+  table tr td:nth-child(2){
+  	width:130px;
+  	
+  }
+  
+  
+   table tr td:nth-child(3){
+  	width:230px;
+  }
+  
+  
+ table tr td:nth-child(4){
+  	width:400px;
+  }
+  
+  .text-center{position:relative;}
+  
+  .atext {
+    display: block;
+    width: 15%;
+    position: absolute;
+	top: -4px;
+	right : 140px;
+} 
+
+ .tr_1{background-color: #45a4a6;
+ color:#fff;}
 </style>
 <body>
  
@@ -33,9 +103,6 @@ float : left;
 </form>
 
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-
-
-리스트페이지입니당 :)
 
 <script>
 
@@ -50,7 +117,14 @@ float : left;
 	}
 </script>
 
-<table>
+<table class="tb_1" cellspacing="0" cellpadding="0">
+
+<tr class="tr_1">
+<td class="td_1"> No. </td>
+<td class="td_2"> 제목 </td>
+<td class="td_3"> 작성자  </td>
+<td class="td_4"> 작성일자 </td>
+</tr>
 	
 <c:forEach items="${list}" var="boardVO">
 <tr>
@@ -87,9 +161,12 @@ float : left;
 				href = "listPage${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a> </li>
 		</c:if>
 	</ul>
+	
+	
+	<a href="/board/register" class="atext">글쓰기</a>
 </div>
 
-<a href="/board/register">글쓰기</a>
+
 
 
 

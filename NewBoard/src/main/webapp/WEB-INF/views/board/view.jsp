@@ -6,6 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
+<style>
+button{border:1px; border-radius:5px; background:#cce0e15; width:44px; height:24px;}
+button:hover{color:#45a4a6; font-weight:bold; border:1px solid #0c989d;}
+
+</style>
+
+
 <body>
 
 <Form role="form" method="post">
